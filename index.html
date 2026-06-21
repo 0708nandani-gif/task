@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Timepiece — Clock &amp; Stopwatch</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="device">
+
+  <div class="device__header">
+    <span class="device__brand">TIMEPIECE</span>
+    <span class="device__model">MODEL CS-01</span>
+  </div>
+
+  <nav class="tabs" role="tablist" aria-label="Mode">
+    <button class="tab is-active" id="tab-clock" role="tab" aria-selected="true" aria-controls="panel-clock">Clock</button>
+    <button class="tab" id="tab-stopwatch" role="tab" aria-selected="false" aria-controls="panel-stopwatch">Stopwatch</button>
+  </nav>
+
+  <!-- CLOCK PANEL -->
+  <section class="panel is-active" id="panel-clock" role="tabpanel" aria-labelledby="tab-clock">
+    <div class="clock">
+      <div class="clock__time" id="clockTime">00:00:00</div>
+      <div class="clock__meta">
+        <span id="clockDate">—</span>
+        <span class="dot">·</span>
+        <span id="clockZone">—</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STOPWATCH PANEL -->
+  <section class="panel" id="panel-stopwatch" role="tabpanel" aria-labelledby="tab-stopwatch" hidden>
+    <div class="stopwatch">
+
+      <div class="stopwatch__ring-wrap">
+        <svg class="stopwatch__ring" viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="ring__track" cx="100" cy="100" r="90" />
+          <circle class="ring__sweep" id="ringSweep" cx="100" cy="100" r="90" />
+        </svg>
+        <div class="stopwatch__readout">
+          <div class="stopwatch__time" id="swTime">00:00<span class="ms">.00</span></div>
+          <div class="stopwatch__status" id="swStatus">READY</div>
+        </div>
+      </div>
+
+      <div class="stopwatch__controls">
+        <button class="btn btn--ghost" id="lapBtn" disabled>Lap</button>
+        <button class="btn btn--primary" id="startStopBtn">Start</button>
+        <button class="btn btn--ghost" id="resetBtn" disabled>Reset</button>
+      </div>
+
+      <ol class="laps" id="lapsList" aria-label="Lap times"></ol>
+    </div>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
